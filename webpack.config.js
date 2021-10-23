@@ -16,9 +16,10 @@ module.exports = { // exporta o objeto de configuração, ele é composto por ch
         extensions: ['.ts', '.tsx', '.js', '.jsx'] // as extensões que o webpack vai resolver, o tsx é para o typescript, o ts é para o javascript
     },
     devServer: { // o devServer é o servidor de desenvolvimento, ele é responsável por fazer o servidor rodar
-        static: path.resolve(__dirname, 'public', 'index.html'), // o contentBase é o caminho do arquivo que será aberto no navegador, o __dirname é o diretório atual (./), o public é o diretório de onde está o arquivo index.html
+        static: path.resolve(__dirname, 'public'), // o contentBase é o caminho do arquivo que será aberto no navegador, o __dirname é o diretório atual (./)
         hot: true, // o hot é o hot reload, ele é responsável por fazer o servidor reiniciar quando houver alterações no código
         port: 3000, // o port é a porta que o servidor vai rodar
+        historyApiFallback: true, // ele é responsável por fazer o servidor rodar as rotas
     },
     plugins: [ // não é um objeto, é um array 
         isDevelopment && new ReactRefreshWebpackPlugin({

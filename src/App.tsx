@@ -1,10 +1,9 @@
 import React from 'react';
+import Routes from './routes';
 
 const App: React.FC = () => { // FC = Function Component
   return (
-    <div>
-      <h1>React Parte 2, ROdando!</h1>
-    </div>
+    <Routes/>
   );
 }
 
