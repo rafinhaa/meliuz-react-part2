@@ -1,21 +1,27 @@
-import React, {FormEvent} from "react";
+import React from "react";
+import  Form  from "../../components/Form";
+import { useSelector } from "react-redux"; // Hook responsável por buscar informações do redux
+import { IAllPersons } from "../../store/modules/types";
 
-const Form = () => {
-
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log("submit");
-        alert("submit");
-    }
+const FormView = () => {
+    const state = useSelector((state: IAllPersons) => state.persons); // Retorna o state do redux que tem todas as pessoas
+    console.log(state);
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <input type="name" placeholder="nome" />
-                <input type="email" placeholder="email" />
-                <input type="submit" value="Cadastrar" />
-            </form>
+            <Form/>
+            <br />
+            <hr />
+            <br />
+            {
+                state.map((person, index) => (
+                    <div key={index}>
+                        <p>{person?.name}</p>
+                        <p>{person?.email}</p>
+                    </div>
+                ))
+            }
         </div>
     );
 }
 
-export default Form;
+export default FormView;

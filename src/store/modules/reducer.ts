@@ -9,13 +9,13 @@ const AllPersons: Reducer<IAllPersons | any > = (state = INITIAL_STATE, action) 
     switch(action.type){
         case 'ADD_PERSON':
             {
-                //persons: [...state.persons, action.payload]
-                console.log(action.payload)
-                const {persons} = action.payload;
-                return {...state, persons: [...state.persons, persons]}
+                console.log('action',action.payload)
+                const {person} = action.payload;
+                return {...state, persons: [...state.persons, person] }
             }
-        default:
+        default: {
             return state;
+        }
     }
 }
 

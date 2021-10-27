@@ -5,7 +5,7 @@ import store  from './store'; // o store é responsável por armazenar os dados 
 
 const App: React.FC = () => { // FC = Function Component
   return (
-    <Provider store={store}>
+    <Provider store={store}> {/* o provider é responsável por conectar o redux ao react*/}
       <Routes />
     </Provider>
   );
