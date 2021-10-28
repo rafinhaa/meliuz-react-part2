@@ -1,11 +1,14 @@
 import React, {useReducer, createContext} from "react"; 
-import { ITodos } from "../interface";
+import { ICountTodos, ICountAction, IContextModel} from "../interface";
 
-const defaultState: ITodos = {
+//Manipular o objeto de contexto de maneira global, o contextAPI ele trata a api de contexto
+//Para compatilhar informações entre componentes
+
+const defaultState: ICountTodos = {
     todos: [],
 };
 
-const reducer = ( state: ITodos,action: any ) => {
+const reducer = ( state: ICountTodos, action: ICountAction ) => { //action é o que vai ser manipulado
     switch (action.type) {
         case 'ADD':
             return {
@@ -15,16 +18,16 @@ const reducer = ( state: ITodos,action: any ) => {
         case 'DELETE':
             return {
                 ...state,
-                todos: state.todos.filter((item) => item !== action.payload),
+                todos: state.todos.filter((item) => item.id !== action.payload),
             };
         default:
             return state;
     }
 }
 
-export const Context = createContext({});
+export const Context = createContext({} as IContextModel);
 
-export const Provider : React.FC = ({children}) => {
+export const Provider : React.FC = ({children}) => { // children é o que está dentro do Provider no App.tsx
     const [state, dispatch] = useReducer(reducer, defaultState);
     return (
         <Context.Provider value={{state, dispatch}}>

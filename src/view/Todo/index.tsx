@@ -1,11 +1,17 @@
-import React from "react";
 import  AddTodo  from "../../components/AddTodo";
+import TodoList from "../../components/TodoList";
+import { Provider as TodoProvider } from "../../context/TodoContext";
+
 
 const Todo = () => {
     
     return (
         <div>
-            <AddTodo/>
+            <TodoProvider>
+                <AddTodo />
+                <hr />
+                <TodoList />
+            </TodoProvider>
         </div>
     );
 }
