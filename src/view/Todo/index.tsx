@@ -6,10 +6,9 @@ import { Provider as TodoProvider } from "../../context/TodoContext";
 const Todo = () => {
     
     return (
-        <div>
+        <div className="container" >
             <TodoProvider>
                 <AddTodo />
-                <hr />
                 <TodoList />
             </TodoProvider>
         </div>

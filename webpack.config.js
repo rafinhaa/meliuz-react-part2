@@ -52,6 +52,13 @@ module.exports = { // exporta o objeto de configuração, ele é composto por ch
                     'sass-loader', // o sass-loader é o responsável por processar/interpretar o sass
 
                 ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                exclude: /node_modules/,
+                use: [
+                    'file-loader', // o file-loader é o responsável por processar/interpretar o arquivo
+                ]
             }
         ],
     }

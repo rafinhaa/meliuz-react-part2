@@ -27,8 +27,8 @@ const AddTodo: React.FC = () => {
     }
     
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="container">
+            <form className="form" onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     ref={textInput} 

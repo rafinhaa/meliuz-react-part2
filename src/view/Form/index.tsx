@@ -7,19 +7,28 @@ const FormView = () => {
     const state = useSelector((state: IAllPersons) => state.persons); // Retorna o state do redux que tem todas as pessoas
     console.log(state);
     return (
-        <div>
+        <div className="container" >
             <Form/>
-            <br />
-            <hr />
-            <br />
-            {
-                state.map((person, index) => (
-                    <div key={index}>
-                        <p>{person?.name}</p>
-                        <p>{person?.email}</p>
-                    </div>
-                ))
-            }
+            <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    state.map((person, index) => (
+                        <tr key={index}>
+                            <td>{person?.name}</td>
+                            <td>{person?.email}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+            
+        </table>
+           
         </div>
     );
 }

@@ -1,8 +1,261 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;1,200;1,300&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import './vars';
 
 *{
   padding: 0;
   margin: 0;
-  background: rgb(218, 218, 218);
-  font-family: 'Montserrat', sans-serif;
+  font-family: $font-default;
+}
+
+body {
+  background: $background-color;
+  -webkit-font-smoothing: antialiased;
+}
+/** Fonte size para desktop inicia em 16px */
+html { /**  Define o tamanho da pagina */
+  @media (max-width: 1080px) { /** Quando a pagina for ate 1080px de largura */
+      font-size: 93.75%; /** reduz a font-size para 93.75% ou seja 15px*/
+  }
+  @media (max-width: 720px) { /** Quando a pagina for ate 720px de largura */
+      font-size: 87.15%; /** reduz a font-size para 87.15% ou seja 14px*/
+  }
+  /** Definimos essas configuraçoes porque vamos usar o REM */
+  /** 1 REM e igual ao font-size da nossa pagina se o font-size = 16px, 1 REM = 16px */
+  /** Se o font-size esta diminuindo conforme a largura da pagina, se utilizarmos o REM na aplicaçao para definit o tamanho dos elementos (botoes), ao diminuir a largura da pagina, o tamanho dos elementos diminuirá conforme a largura da pagina */
+  /** Utilizar percentual para definir o tamanho da fonte, e a melhor pratica caso o usuario esteja utilizando o zoom do navegador */
+}
+
+h1, h2, h3, h4, h5, h6, strong { /** Fontes de negrito */
+  font-weight: 600;
+}
+
+.container{
+  width: 80%;
+  margin: auto;
+  h1 {
+    text-align: center;
+  }
+}
+
+header {
+  padding: 2rem 1rem 1rem; // 1rem = ao font-size do :root - estamos colocando 16px (1rem) nas laterais e 12rem (192px) para baixo */
+  margin-bottom: 1.5rem;
+  background-color: $color-primary;
+}
+
+.loader{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  .card{
+    background: $card-color;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    img{
+      border-radius: 0.25rem;
+    }
+    transition: filter 0.2s;
+    &:hover{
+      filter: brightness(0.7);
+    }
+  }
+  p {
+    color: $element-background-color;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  a {
+    text-decoration: none;
+    color: $color-primary;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.nav-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  & img{
+    width: 150px;
+    height: auto;
+  }
+  .links{
+    & > a{
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin: 0.5rem;
+      background: $element-background-color;
+      color: #fff;
+      padding: 0.8rem;
+      border-radius: 0.25rem;
+      transition: filter 0.2s;
+      &:hover{
+        filter: brightness(0.9);
+      }
+    }
+  }
+}
+
+li {
+  font-weight: 500;
+}
+
+footer {
+  height: 8rem;
+  background: $color-primary;
+  padding: 1rem;
+  color: #fff;
+  margin-top: 1.5rem;
+}
+
+.button-paggination{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & button {
+    background: $element-background-color;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 1.2rem;
+    margin: 1.3rem;
+    transition: .6s;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: filter 0.2s;
+    &:hover{
+      filter: brightness(0.9);
+    }
+    &:disabled{
+      background: #e4e4e4;
+      color:rgb(107, 98, 98);
+    }
+  }
+}
+
+.form {  
+  width: 100%;
+  h2 {
+    color: $element-background-color;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;        
+  }
+  input {
+      width: 100%;
+      padding: 0 1.5rem;
+      height: 4rem;
+      border-radius: 0.25rem;
+      background-color: #FFF;
+      border: 1px solid #FFF;
+      font-weight: 400;
+      font-size: 1rem;
+      &::placeholder {
+          color: $text-body-color;
+      }
+      & + input { // Todo o input que não seja o primeiro deve ter um margin-top
+          margin-top: 1rem;   
+      }
+  }
+  input[type="submit"] { //Estilizando o button de submit */
+      width: 100%;
+      padding: 0 1.5rem;
+      height: 4rem;
+      background: $element-background-color;
+      color: #FFF;
+      border-radius: 0.25rem;
+      border: 0;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      transition: filter 0.2s;
+      &:hover { /* Ao passar o mouse sobre o botão */
+          filter: brightness(0.9); /* Diminuir a luminosidade em 90% */
+      }
+  }    
+}
+
+
+table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  th {
+      color: #fff;
+      font-weight: 400;
+      padding: 1rem 2rem;
+      text-align: left;
+      line-height: 1.5rem;
+      background: $color-primary;
+      &:first-child {        
+          border-radius: 0.25rem 0rem 0rem 0.25rem;
+      }
+      &:last-child {              
+          border-radius: 0rem 0.25rem 0.25rem 0rem;
+      }
+      
+  }
+  td {
+      padding: 1rem 2rem;
+      border: 0;
+      background: #FFF;
+      font-weight: 400;
+      color: $text-body-color;
+      button {
+          width: 25%;
+          color: #FFF;
+          background: $remove-button-background-color;
+          border-radius: 0.25rem;
+          height: 2rem;
+          font-size: 1.5rem;
+          border: 0;
+          font-weight: 600;
+          transition: filter 0.2s;
+          &:hover {
+              filter: brightness(0.8);
+          }
+      }
+      
+      &:first-child {        
+          border-radius: 0.25rem 0rem 0rem 0.25rem;
+      }
+      &:last-child {              
+          border-radius: 0rem 0.25rem 0.25rem 0rem;
+      }
+  }        
+}
+
+.sem-todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
+  h1 {
+    color: $remove-button-background-color;
+    font-size: 1.5rem;
+  }
+}
+
+.com-todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
+  h1 {
+    color: $element-background-color;
+    font-size: 1.5rem;
+  }
 }

@@ -6,6 +6,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "typeRoots" : ["node_modules/@types", "src/types"], // São os diretórios onde os tipos são encontrados
     "allowJs": true, // Permite que o typescript use javascript
     "skipLibCheck": true, // Permite que o typescript ignore as bibliotecas
     "esModuleInterop": true, // Permite que o typescript use o modulo do javascript

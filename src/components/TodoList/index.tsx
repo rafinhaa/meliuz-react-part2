@@ -13,22 +13,38 @@ const TodoList: React.FC = () => {
     }
 
     return  todos.length > 0 ? (
-        <div>
-            <ul>
+        <>
+        <table>
+            <thead>
+                <tr>
+                    <th>Todo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                
                 {
                     todos.map(todo => (
-                        <li key={todo.id}>
-                            {todo.title}
-                            <button onClick={() => deleteTodoHandler(todo.id)}>Delete</button>
-                        </li>
+                        <tr>
+                            <td key={todo.id}>
+                                {todo.title}
+                            </td>
+                            <td>
+                                <button onClick={() => deleteTodoHandler(todo.id)}>Delete</button>
+                            </td>
+                        </tr>
                     ))
                 }
-            </ul>
-            <h5>Eu tenho {todos.length} {todos.length > 1 ? 'tarefas' : 'tarefa'}</h5>
+            </tbody>
+            
+        </table>
+        <div className="com-todos"> 
+            <h1>Eu tenho {todos.length} {todos.length > 1 ? 'tarefas' : 'tarefa'}</h1>
         </div>
+        </>
     ) : (
-        <div>
-            <h5>Sem TODOS!</h5>
+        <div className="sem-todos" >
+            <h1>Sem TODOS!</h1>
         </div>
     )
 };
