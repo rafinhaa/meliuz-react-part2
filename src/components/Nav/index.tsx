@@ -17,6 +17,9 @@ const Nav: React.FC = () => {
                     <Link to="/rm">About</Link>
                     <Link to="/form">Form</Link>
                     <Link to="/todo">Todo</Link>
+                    <Link to="/cadastrar">Cadastrar</Link>
+                    <Link to="/logar">Logar</Link>
+                    <Link to="/dash">Dashboard</Link>
                 </div>
             </motion.nav>
         </header>

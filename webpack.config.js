@@ -44,8 +44,7 @@ module.exports = { // exporta o objeto de configuração, ele é composto por ch
                 }
             },
             {
-                test: /\.s(c|a)ss$/,
-                exclude: /node_modules/, 
+                test: /\.s?(c|a)ss$/,
                 use: [
                     'style-loader', // o style-loader é o responsável minificar o css
                     'css-loader', // o css-loader é o responsável por processar/interpretar o css

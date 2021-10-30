@@ -18,3 +18,12 @@ export interface IContextModel {
     state: ICountTodos;
     dispatch: React.Dispatch<ICountAction>;
 }
+
+//Tipagem para o formulário da API de autenticação
+export interface ISignUp {
+    password: string;
+    name: string;
+    email: string;
+}
+
+export type ISignIn = Omit<ISignUp, "name">;
