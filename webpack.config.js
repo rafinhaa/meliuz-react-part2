@@ -18,7 +18,7 @@ module.exports = { // exporta o objeto de configuração, ele é composto por ch
     devServer: { // o devServer é o servidor de desenvolvimento, ele é responsável por fazer o servidor rodar
         static: path.resolve(__dirname, 'public'), // o contentBase é o caminho do arquivo que será aberto no navegador, o __dirname é o diretório atual (./)
         hot: true, // o hot é o hot reload, ele é responsável por fazer o servidor reiniciar quando houver alterações no código
-        port: 3000, // o port é a porta que o servidor vai rodar
+        port: 3001, // o port é a porta que o servidor vai rodar
         historyApiFallback: true, // ele é responsável por fazer o servidor rodar as rotas
     },
     plugins: [ // não é um objeto, é um array 
